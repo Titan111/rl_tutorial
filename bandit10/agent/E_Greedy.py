@@ -1,28 +1,22 @@
-from bandit10 import bandit10 
 import random
 
-sum_r=[]
-for i in range(10):sum_r.append(0);
-k=[]
-for i in range(10):k.append(0);
-q=[]
-for i in range(10):q.append(0);
-e=0.01
+class E_Greedy:
+	def __init__(self,n,e):
+		self.sum_r = [0 for i in range(n)]
+		self.count = [0 for i in range(n)]
+		self.q = [0 for i in range(n)]
+		self.e = e
+		self.n = n
 
-
-for epoch in range(1000):
-	result = 0
-	for i in range(100):
+	def act(self):
 		action = 0
-		if random.random() > e:
-			action = q.index(max(q))
+		if random.random() > self.e:
+			action = self.q.index(max(self.q))
 		else:
-			action = random.randint(0,9)
-		
-		k[action]+=1
-		r=bandit10(action)
-		result += action
-		sum_r[action] += r 
-		q[action]=sum_r[action]/k[action]
-	print(result/100)
-print(q)
+			action = random.randint(0,self.n-1)
+		return action
+
+	def learn(self,action,reward):
+		self.count[action]+=1
+		self.sum_r[action] += reward
+		self.q[action]=self.sum_r[action]/self.count[action]
