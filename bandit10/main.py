@@ -1,14 +1,18 @@
+#! /usr/bin/python3
 import matplotlib.pyplot as plt
-from bandit10 import bandit10 
-from agent import e_greedy
+from Bandit10 import bandit10 
+from agent import E_Greedy
+from agent import Softmax
 import Data
 
 ROBOT_N = 3
 
 robot = []
-robot.append(e_greedy.E_Greedy(10,0.01))
-robot.append(e_greedy.E_Greedy(10,0.1))
-robot.append(e_greedy.E_Greedy(10,1))
+#robot.append(E_Greedy.E_Greedy(10,0.01))
+#robot.append(E_Greedy.E_Greedy(10,0.1))
+#robot.append(E_Greedy.E_Greedy(10,1))
+robot.apped(Softmax.Softmax(10,0.1))
+robot.apped(Softmax.Softmax(10,0.01))
 
 log = [Data.Data() for i in range(ROBOT_N)]
 
