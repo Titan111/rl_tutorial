@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Data:
 	def __init__(self):
 		self.count_hit=0
