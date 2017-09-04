@@ -30,6 +30,5 @@ class MultiData:
 		self.sample_n+= 1
 
 	def update(self):
-		print(self.sample_n)
 		self.r_graph /= self.sample_n
 		self.a_graph /= self.sample_n

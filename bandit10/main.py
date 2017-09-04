@@ -7,16 +7,16 @@ from agent import E_Greedy
 from agent import Softmax
 import Data
 
-ROBOT_N = 3
+ROBOT_N = 2
 SAMPLE_N = 100
 EPOCH_N = 2000
 mlog = [Data.MultiData(EPOCH_N) for i in range(ROBOT_N)]
 
 for sample in range(SAMPLE_N):
 	robot = []
-	robot.append(E_Greedy.E_Greedy(10,0.1))
-	robot.append(Softmax.Softmax(10,0.8))
-	robot.append(Softmax.Softmax(10,0.5))
+	#robot.append(E_Greedy.E_Greedy(10,0.1))
+	robot.append(Softmax.Softmax(10,0.05))
+	robot.append(Softmax.Softmax(10,0.01))
 
 	log = [Data.Data() for i in range(ROBOT_N)]
 
