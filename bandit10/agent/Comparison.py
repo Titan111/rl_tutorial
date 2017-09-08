@@ -2,16 +2,16 @@ import math
 import random
 
 class Comparison:
-	def __init__(self,n = 10,a = 0.9,b = 0.9):
+	def __init__(self,n = 10,a = 0.1,b = 0.9):
 		self.p=[0.1 for i in range(n)]
-		self.reference = math.fsum(p)/len(p)
+		self.reference = math.fsum(self.p)/len(self.p)
 		self.n=n
 		self.a=a
 		self.b=b
 	
 	def act(self):
-		denom = sum(map(lambda x: math.exp(x),self.q))
-		prob = list(map(lambda x: math.exp(x)/denom , self.q))
+		denom = sum(map(lambda x: math.exp(x),self.p))
+		prob = list(map(lambda x: math.exp(x)/denom , self.p))
 
 		rnd = random.random()
 		sum_prob=0

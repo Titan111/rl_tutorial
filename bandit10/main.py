@@ -5,20 +5,21 @@ import matplotlib.pyplot as plt
 from Bandit10 import bandit10
 from agent import E_Greedy
 from agent import Softmax
-from agent import Roulette
+from agent import Comparison
+from agent import Pursuit
 import Data
 
-ROBOT_N = 3
+ROBOT_N = 1
 SAMPLE_N = 50
-EPOCH_N = 5000
+EPOCH_N = 10000
 mlog = [Data.MultiData(EPOCH_N) for i in range(ROBOT_N)]
 
 for sample in range(SAMPLE_N):
 	robot = []
+	robot.append(Pursuit.Pursuit())
 	robot.append(Softmax.Softmax(10,0.1))
-	robot.append(Roulette.Roulette(10))
-	robot.append(E_Greedy.E_Greedy(10,0.05))
-
+	robot.append(Comparison.Comparison(10,0.95,0.95))
+	robot.append(Comparison.Comparison(10,0.85,0.85))
 	log = [Data.Data() for i in range(ROBOT_N)]
 
 	for epoch in range(EPOCH_N):
